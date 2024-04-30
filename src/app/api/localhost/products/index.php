@@ -1,15 +1,11 @@
 <?php 
 include('../connect.php');
+header('Access-Control-Allow-Origin: *');
 
-  $conn = new DbConnect();
-    $db = $conn->connect();
-    $method = $_SERVER['REQUEST_METHOD'];
-    switch($method) {
-        case 'GET':
-    $sql = "SELECT * FROM products";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);        
-    echo json_encode($users);
-    break;
-		}
+$data = array(); 
+$sql = "SELECT * FROM products";
+$ta = mysqli_query($conn,$sql); 
+while($row = mysqli_fetch_assoc($ta)){
+    $data[] = $row; 
+}
+echo json_encode($data); 
