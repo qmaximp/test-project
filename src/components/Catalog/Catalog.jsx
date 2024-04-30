@@ -25,7 +25,6 @@ const Catalog = ({ selectedCategory = 0 }) => {
       setFiltredProducts(product);
     }
   }, [selectedCategory]);
-
   return (
     <div className={css.catalog}>
       {filtredProducts &&

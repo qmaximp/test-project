@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import css from "./FormCreateProduct.module.scss";
-import categories_data from "../module.contants";
 import axios from "axios";
+import FilterCategory from "../FilterCategory/FilterCategory";
 
 const FormCreateProduct = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [cost, setCost] = useState("");
+  const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [phone, setPhone] = useState("");
   const [name, setName] = useState("");
@@ -17,14 +17,15 @@ const FormCreateProduct = () => {
     let data = {
       title,
       description,
-      cost,
-      category,
+      price,
+      /*  category,
       phone,
-      name,
+      name, */
     };
-    axios.post("url", data);
+    axios.post("http://localhost:3001/create/", data).then((res) => {
+      console.log(res);
+    });
   };
-  console.log(handleSubmit);
 
   return (
     <div className={css.formCreateProduct}>
@@ -49,25 +50,13 @@ const FormCreateProduct = () => {
         type="text"
         placeholder="цена"
         required
-        value={cost}
+        value={price}
         onChange={(e) => {
-          setCost(e.target.value);
+          setPrice(e.target.value);
         }}
       />
       <div>
-        <p>Выберите категорию</p>
-        <select
-          name="category"
-          id="1"
-          value={category}
-          onChange={(e) => {
-            setCategory(e.target.value);
-          }}>
-          {categories_data &&
-            categories_data.map((el) => {
-              return <option value={el.id}>{el.title}</option>;
-            })}
-        </select>
+        <FilterCategory />
       </div>
       <input
         type="phone"

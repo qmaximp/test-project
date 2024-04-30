@@ -1,12 +1,7 @@
-import FormCreateProduct from '@/components/FormCreateProduct/FormCreateProduct';
-import Wrapper from '@/components/Wrapper/Wrapper';
-import React from 'react';
+import FormCreateProduct from "@/components/FormCreateProduct/FormCreateProduct";
+import React from "react";
 
 const page = () => {
-	return (
-
-		<FormCreateProduct />
-
-	);
+  return <FormCreateProduct />;
 };
 export default page;

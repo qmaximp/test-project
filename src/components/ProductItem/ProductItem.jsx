@@ -2,7 +2,6 @@ import React from "react";
 import css from "./ProductItem.module.scss";
 import Image from "next/image";
 import placeholder from "../../../public/image-placeholder.png";
-import Link from "next/link";
 
 const ProductItem = ({ id, title, description, price, phone, userName }) => {
   return (

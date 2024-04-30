@@ -1,6 +1,5 @@
 "use client";
 import ProductItem from "@/components/ProductItem/ProductItem";
-import Products from "@/app/api/cartProduct.mockData";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";

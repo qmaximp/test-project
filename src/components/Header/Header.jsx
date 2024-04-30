@@ -1,8 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import css from "./Header.module.scss";
 import Link from "next/link";
-import categories_data from "../module.contants";
 
 const Header = () => {
   return (

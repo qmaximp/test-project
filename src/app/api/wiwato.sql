@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 27 2024 г., 05:14
--- Версия сервера: 8.0.30
--- Версия PHP: 8.1.9
+-- Время создания: Апр 27 2024 г., 23:36
+-- Версия сервера: 10.4.26-MariaDB
+-- Версия PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,19 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `category_id` int NOT NULL,
-  `category_name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_value` bigint DEFAULT NULL
+  `idCategory` int(11) NOT NULL,
+  `nameCategory` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `valueCategory` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `category_name`, `category_value`) VALUES
-(1, 'стул', 1),
-(2, 'стол', 2),
-(3, 'дверь', 3);
+INSERT INTO `categories` (`idCategory`, `nameCategory`, `valueCategory`) VALUES
+(0, 'все', 0),
+(1, 'блок питания', 1),
+(2, 'материнская плата', 2),
+(3, 'видеокарта', 3);
 
 -- --------------------------------------------------------
 
@@ -49,21 +50,21 @@ INSERT INTO `categories` (`category_id`, `category_name`, `category_value`) VALU
 --
 
 CREATE TABLE `products` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `price` bigint DEFAULT NULL,
-  `categories` int DEFAULT NULL,
-  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` bigint(20) DEFAULT NULL,
+  `valueCategory` int(11) DEFAULT NULL,
+  `userName` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`id`, `title`, `description`, `price`, `categories`, `username`, `phone`) VALUES
-(1, 'память 1', 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor ', 1000, 1, 'Имя Фамилия Отчество', NULL),
+INSERT INTO `products` (`id`, `title`, `description`, `price`, `valueCategory`, `userName`, `phone`) VALUES
+(1, 'память 1', 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor ', 1000, 1, 'Имя Фамилия Отчество', '+7986752 60 35'),
 (2, 'видеокарта 2', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi consectetur illo magni ut veritatis voluptas\r\n			voluptate, labore, quaerat dolorum blanditiis,', 2000, 2, 'Имя Фамилия Отчество 2', NULL),
 (3, 'Product 3', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi consectetur illo magni ut veritatis voluptas\r\n			voluptate, labore, quaerat dolorum blanditiis,', 3000, 3, 'Имя Фамилия Отчество 3', NULL);
 
@@ -75,7 +76,7 @@ INSERT INTO `products` (`id`, `title`, `description`, `price`, `categories`, `us
 -- Индексы таблицы `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`);
+  ADD PRIMARY KEY (`idCategory`);
 
 --
 -- Индексы таблицы `products`
@@ -91,13 +92,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCategory` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

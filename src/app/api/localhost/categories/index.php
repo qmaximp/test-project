@@ -1,6 +1,5 @@
 <?php 
 include('../connect.php');
-
   $conn = new DbConnect();
     $db = $conn->connect();
     $method = $_SERVER['REQUEST_METHOD'];
