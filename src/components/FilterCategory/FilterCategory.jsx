@@ -13,7 +13,10 @@ const FilterCategory = ({ categorySetter }) => {
     });
   }, []);
   return (
-    <div>
+    <div
+      style={{
+        padding: "15px 20px",
+      }}>
       <p>Выберите категорию:</p>
       <select
         name="category"

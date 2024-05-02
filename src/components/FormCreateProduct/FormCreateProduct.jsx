@@ -6,29 +6,43 @@ import axios from "axios";
 import FilterCategoryCreate from "../FilterCategory/FilterCategoryCreate";
 
 const FormCreateProduct = () => {
+  const [image, setImage] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [phone, setPhone] = useState("");
-  const [name, setName] = useState("");
-
+  const [userName, setUserName] = useState("");
   const handleSubmit = () => {
     let data = {
       title,
       description,
       price,
-      /*  category,
+      category,
       phone,
-      name, */
+      userName,
     };
-    axios.post("http://localhost:3001/create/", data).then((res) => {
-      console.log(res);
-    });
+    console.log(data);
+    axios
+      .post("http://localhost:3001/create/", data, {
+        headers: { "content-type": "application/x-www-form-urlencoded" },
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
   };
 
   return (
     <div className={css.formCreateProduct}>
+      <input
+        type="text"
+        placeholder="загаловок"
+        required
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
       <input
         type="text"
         placeholder="загаловок"
@@ -55,9 +69,8 @@ const FormCreateProduct = () => {
           setPrice(e.target.value);
         }}
       />
-      <div>
-        <FilterCategoryCreate />
-      </div>
+
+      <FilterCategoryCreate />
       <input
         type="phone"
         placeholder="Укажите ваш телефон"
@@ -71,9 +84,9 @@ const FormCreateProduct = () => {
         type="text"
         placeholder="Укажите ваше ФИО"
         required
-        value={name}
+        value={userName}
         onChange={(e) => {
-          setName(e.target.value);
+          setUserName(e.target.value);
         }}
       />
       <button type="submit" onClick={handleSubmit}>

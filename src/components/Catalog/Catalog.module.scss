@@ -1,8 +1,10 @@
 @import '../../style/varibles.scss';
 
 .catalog {
-	/* padding: 15px 30px; */
+	padding: 15px 40px;
+	height: 440px;
+	overflow-y: auto;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: 15px;
 }

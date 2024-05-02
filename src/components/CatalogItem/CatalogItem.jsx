@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import placeholder from "../../../public/image-placeholder.png";
+import placeholder from "../../../public/imageProduct/image-placeholder.png";
 import css from "./CatalogItem.module.scss";
 import Link from "next/link";
 
@@ -12,8 +12,7 @@ const CatalogItem = ({ id, title, price }) => {
           <Image alt="" src={placeholder}></Image>
           <h3>{title}</h3>
           <p>
-            <b>цена:</b>
-            {price}
+            <b>цена:</b>&nbsp;{price}
           </p>
         </div>
       </div>

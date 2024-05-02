@@ -6,7 +6,6 @@ import axios from "axios";
 
 const page = () => {
   const [product, setProduct] = useState();
-  const [category, setCategory] = useState();
   const pathname = usePathname();
   useEffect(() => {
     axios.get("http://localhost:3001/products/").then((res) => {
@@ -18,15 +17,6 @@ const page = () => {
       });
       setProduct(prod);
     });
-    /* axios.get("http://localhost:3001/categories/").then((res) => {
-      let categories;
-      res.data.map((el) => {
-        if (el.id == pathname.split("/")[pathname.split("/").length - 1]) {
-          categories = el;
-        }
-      });
-      setCategory(categories);
-    }); */
   }, []);
   return (
     <div>
@@ -35,10 +25,11 @@ const page = () => {
           <ProductItem
             key={product.id}
             id={product.id}
+            imageProduct={product.imageProduct}
             title={product.title}
             description={product.description}
             price={product.price}
-            /* category={category.valueCategory} */
+            /* valueCategory={category.valueCategory} */
             phone={product.phone}
             userName={product.userName}
           />

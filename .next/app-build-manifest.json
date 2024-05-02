@@ -1,16 +1,22 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/createProduct/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/createProduct/page.css",
+      "static/chunks/app/createProduct/page.js"
+    ],
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/product/[id]/page": [
       "static/chunks/webpack.js",
@@ -18,11 +24,10 @@
       "static/css/app/product/[id]/page.css",
       "static/chunks/app/product/[id]/page.js"
     ],
-    "/createProduct/page": [
+    "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/createProduct/page.css",
-      "static/chunks/app/createProduct/page.js"
+      "static/chunks/app/not-found.js"
     ]
   }
 }
