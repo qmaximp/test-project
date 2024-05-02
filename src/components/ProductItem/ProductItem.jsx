@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import css from "./ProductItem.module.scss";
 import Image from "next/image";
 import placeholder from "../../../public/image-placeholder.png";
 
-const ProductItem = ({ id, title, description, price, phone, userName }) => {
+const ProductItem = ({
+  id,
+  title,
+  description,
+  price,
+  category,
+  phone,
+  userName,
+}) => {
   return (
     <div className={css.productItem} id={id}>
       <div className={css.productItem__img}>
@@ -15,7 +23,7 @@ const ProductItem = ({ id, title, description, price, phone, userName }) => {
         <h3>
           <b>Цена:</b> {price}
         </h3>
-        <h3>Категория: машины</h3>
+        <h3>Категория: {category}</h3>
         <p>{phone}</p>
         <p> {userName}</p>
       </div>

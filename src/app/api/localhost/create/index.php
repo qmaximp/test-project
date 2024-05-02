@@ -6,8 +6,8 @@ include('../connect.php');
 $title = $_POST['title'];
 $description = $_POST['description'];
 $price = $_POST['price'];
-echo($title);
-/* $sql = "INSERT INTO products (`title`, `description`, `price`) VALUES ('$title', '$description', '$price')";
- */
+
+$sql = "INSERT INTO products (`title`, `description`, `price`) VALUES ('$title', '$description', '$price')";
+
 
 $conn->close();

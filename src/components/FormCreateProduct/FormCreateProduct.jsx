@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import css from "./FormCreateProduct.module.scss";
 import axios from "axios";
-import FilterCategory from "../FilterCategory/FilterCategory";
+import FilterCategoryCreate from "../FilterCategory/FilterCategoryCreate";
 
 const FormCreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -56,7 +56,7 @@ const FormCreateProduct = () => {
         }}
       />
       <div>
-        <FilterCategory />
+        <FilterCategoryCreate />
       </div>
       <input
         type="phone"
