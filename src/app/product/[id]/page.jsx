@@ -6,6 +6,7 @@ import axios from "axios";
 
 const page = () => {
   const [product, setProduct] = useState();
+  const [categories, setCategories] = useState();
   const pathname = usePathname();
   useEffect(() => {
     axios.get("http://localhost:3001/products/").then((res) => {
@@ -18,6 +19,7 @@ const page = () => {
       setProduct(prod);
     });
   }, []);
+
   return (
     <div>
       {product && product.id && product.title ? (
@@ -29,7 +31,6 @@ const page = () => {
             title={product.title}
             description={product.description}
             price={product.price}
-            /* valueCategory={category.valueCategory} */
             phone={product.phone}
             userName={product.userName}
           />

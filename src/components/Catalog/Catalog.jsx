@@ -4,7 +4,7 @@ import CatalogItem from "../CatalogItem/CatalogItem";
 import css from "./Catalog.module.scss";
 import axios from "axios";
 
-const Catalog = ({ selectedCategory = 0 }) => {
+const Catalog = ({ selectedCategory = 0, setSelectedCategory }) => {
   const [product, setProduct] = useState();
   const [filtredProducts, setFiltredProducts] = useState([]);
   useEffect(() => {
@@ -12,7 +12,10 @@ const Catalog = ({ selectedCategory = 0 }) => {
       let prod;
       prod = res.data;
       setProduct(prod);
+      setSelectedCategory(0);
     });
+  }, []);
+  useEffect(() => {
     if (selectedCategory != 0) {
       let newProducts = [];
       product.map((el) => {
@@ -24,7 +27,7 @@ const Catalog = ({ selectedCategory = 0 }) => {
     } else {
       setFiltredProducts(product);
     }
-  }, [selectedCategory]);
+  }, [selectedCategory, product]);
   return (
     <div className={css.catalog}>
       {filtredProducts &&

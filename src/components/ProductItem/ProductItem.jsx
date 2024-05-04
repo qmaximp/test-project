@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import css from "./ProductItem.module.scss";
 import Image from "next/image";
-/* import placeholder from "../../../public/image-placeholder.png"; */
-/* import placeholder from "../../../"; */
 
 const ProductItem = ({
   id,
@@ -10,7 +8,6 @@ const ProductItem = ({
   title,
   description,
   price,
-  valueCategory,
   phone,
   userName,
 }) => {
@@ -28,7 +25,6 @@ const ProductItem = ({
         <h3>
           <b>Цена:</b> {price}
         </h3>
-        <h3>Категория: {valueCategory}</h3>
         <p>
           <b>Телефон:</b>
           {phone}

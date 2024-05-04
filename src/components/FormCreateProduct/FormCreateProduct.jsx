@@ -10,42 +10,41 @@ const FormCreateProduct = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [valueCategory, setCategory] = useState("");
   const [phone, setPhone] = useState("");
   const [userName, setUserName] = useState("");
   const handleSubmit = () => {
     let data = {
+      image,
       title,
       description,
       price,
-      category,
+      valueCategory,
       phone,
       userName,
     };
+    axios.post("http://localhost:3001/create/", data, {
+      headers: { "content-type": "application/x-www-form-urlencoded" },
+    });
     console.log(data);
-    axios
-      .post("http://localhost:3001/create/", data, {
-        headers: { "content-type": "application/x-www-form-urlencoded" },
-      })
-      .then((res) => {
-        console.log(res.data);
-      });
   };
 
   return (
+    /*   <form action={"http://localhost:3000"} className={css.formCreateProduct}> */
     <div className={css.formCreateProduct}>
       <input
-        type="text"
-        placeholder="загаловок"
+        type="file"
+        placeholder="asaasd"
         required
-        value={title}
+        filename={image}
+        accept="image/*"
         onChange={(e) => {
-          setTitle(e.target.value);
+          setImage(e.target.files[0]);
         }}
       />
       <input
         type="text"
-        placeholder="загаловок"
+        placeholder="заголовок"
         required
         value={title}
         onChange={(e) => {
@@ -70,7 +69,7 @@ const FormCreateProduct = () => {
         }}
       />
 
-      <FilterCategoryCreate />
+      <FilterCategoryCreate categorySetter={setCategory} />
       <input
         type="phone"
         placeholder="Укажите ваш телефон"
@@ -89,6 +88,7 @@ const FormCreateProduct = () => {
           setUserName(e.target.value);
         }}
       />
+
       <button type="submit" onClick={handleSubmit}>
         Разместить
       </button>

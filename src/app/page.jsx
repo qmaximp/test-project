@@ -13,7 +13,10 @@ const page = () => {
         gridTemplateColumns: "1fr 3fr",
       }}>
       <FilterCategory categorySetter={setSelectedCategory} />
-      <Catalog selectedCategory={selectedCategory} />
+      <Catalog
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
     </div>
   );
 };
