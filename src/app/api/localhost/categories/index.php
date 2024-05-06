@@ -1,6 +1,6 @@
 <?php 
 include('../connect.php');
-header('Access-Control-Allow-Origin: *');
+
 
 $data = array(); 
 $sql = "SELECT * FROM categories";

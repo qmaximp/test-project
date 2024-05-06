@@ -21,7 +21,10 @@ const ProductItem = ({
       </div>
       <div className={css.productItem__description}>
         <h2>{title}</h2>
-        <p>{description}</p>
+        <p>
+          <b>Описание: </b>
+          {description}
+        </p>
         <h3>
           <b>Цена:</b> {price}
         </h3>

@@ -6,7 +6,6 @@ import axios from "axios";
 
 const page = () => {
   const [product, setProduct] = useState();
-  const [categories, setCategories] = useState();
   const pathname = usePathname();
   useEffect(() => {
     axios.get("http://localhost:3001/products/").then((res) => {

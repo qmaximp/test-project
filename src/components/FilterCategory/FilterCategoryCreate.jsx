@@ -18,9 +18,6 @@ const FilterCategoryCreate = ({ categorySetter }) => {
       <select
         name="category"
         id="1"
-        onSelect={(e) => {
-          categorySetter ? categorySetter(e.target.value) : null;
-        }}
         onChange={(e) => {
           categorySetter ? categorySetter(e.target.value) : null;
         }}>

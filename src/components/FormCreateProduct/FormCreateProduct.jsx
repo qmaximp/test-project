@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import css from "./FormCreateProduct.module.scss";
 import axios from "axios";
 import FilterCategoryCreate from "../FilterCategory/FilterCategoryCreate";
@@ -10,7 +10,7 @@ const FormCreateProduct = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [valueCategory, setCategory] = useState("");
+  const [valueCategory, setCategory] = useState("1");
   const [phone, setPhone] = useState("");
   const [userName, setUserName] = useState("");
   const handleSubmit = () => {
@@ -26,22 +26,20 @@ const FormCreateProduct = () => {
     axios.post("http://localhost:3001/create/", data, {
       headers: { "content-type": "application/x-www-form-urlencoded" },
     });
-    console.log(data);
   };
 
   return (
-    /*   <form action={"http://localhost:3000"} className={css.formCreateProduct}> */
-    <div className={css.formCreateProduct}>
-      <input
+    <form action={"http://localhost:3000"} className={css.formCreateProduct}>
+      {/*  <form className={css.formCreateProduct}>  */}
+      {/*   <input
         type="file"
-        placeholder="asaasd"
+        accept="image/*"
         required
         filename={image}
-        accept="image/*"
         onChange={(e) => {
           setImage(e.target.files[0]);
         }}
-      />
+      /> */}
       <input
         type="text"
         placeholder="заголовок"
@@ -60,7 +58,7 @@ const FormCreateProduct = () => {
         }}
       />
       <input
-        type="text"
+        type="number"
         placeholder="цена"
         required
         value={price}
@@ -71,7 +69,7 @@ const FormCreateProduct = () => {
 
       <FilterCategoryCreate categorySetter={setCategory} />
       <input
-        type="phone"
+        type="number"
         placeholder="Укажите ваш телефон"
         required
         value={phone}
@@ -92,7 +90,7 @@ const FormCreateProduct = () => {
       <button type="submit" onClick={handleSubmit}>
         Разместить
       </button>
-    </div>
+    </form>
   );
 };
 

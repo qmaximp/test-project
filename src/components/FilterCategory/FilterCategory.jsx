@@ -6,7 +6,6 @@ const FilterCategory = ({ categorySetter }) => {
   const [categories, setCategories] = useState();
   useEffect(() => {
     axios.get("http://localhost:3001/categories/").then((res) => {
-      /* const newRes = Array.isArray(res.data) ? res.data.slice(1) : []; */
       let category;
       category = res.data;
       setCategories(category);

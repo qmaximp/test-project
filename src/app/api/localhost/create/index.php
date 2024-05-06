@@ -1,7 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: *');
 include('../connect.php');
+
 
 $image = $_POST['image'];
 $title = $_POST['title'];

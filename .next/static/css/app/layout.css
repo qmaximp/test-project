@@ -499,7 +499,7 @@ input {
   box-shadow: 0px 0px 7px #232323;
   border-radius: 25px;
   height: 50px;
-  padding: 20px;
+  padding: 15px 20px;
 }
 input::placeholder {
   font-size: 16px;
@@ -508,12 +508,17 @@ input:hover {
   transform: scale(0.99);
 }
 
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  display: none;
+}
+
 textarea {
   box-shadow: 0px 0px 7px #232323;
   border-radius: 25px;
   resize: none;
   height: 200px;
-  padding: 20px;
+  padding: 15px 20px;
 }
 textarea::placeholder {
   font-size: 16px;
