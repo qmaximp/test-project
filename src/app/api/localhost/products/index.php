@@ -9,3 +9,4 @@ while($row = mysqli_fetch_assoc($ta)){
 }
 
 echo json_encode($data); 
+$conn->close();

@@ -1,21 +1,38 @@
 "use client";
-
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import css from "./FormCreateProduct.module.scss";
 import axios from "axios";
 import FilterCategoryCreate from "../FilterCategory/FilterCategoryCreate";
 
 const FormCreateProduct = () => {
-  const [image, setImage] = useState();
+  const [data, setData] = useState({
+    selectedFile: "",
+    responseArray: "",
+    loading: false,
+  });
+  const [img, setImg] = useState("");
+  /* const handleInputChange = (event) => {
+    console.log("event", event.target.files);
+    setData({ ...data, loading: true });
+    img = event.target.files[0];
+    const info = new FormData();
+    info.append("file", img);
+    axios.post("http://localhost:3001/uploadImage/", info, {
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+      },
+    });
+  }; */
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [valueCategory, setCategory] = useState("1");
   const [phone, setPhone] = useState("");
   const [userName, setUserName] = useState("");
+
   const handleSubmit = () => {
     let data = {
-      image,
       title,
       description,
       price,
@@ -23,21 +40,20 @@ const FormCreateProduct = () => {
       phone,
       userName,
     };
+    console.log(data);
     axios.post("http://localhost:3001/create/", data, {
       headers: { "content-type": "application/x-www-form-urlencoded" },
     });
   };
 
   return (
-    <form action={"http://localhost:3000"} className={css.formCreateProduct}>
-      {/*  <form className={css.formCreateProduct}>  */}
-      {/*   <input
+    <div className={css.formCreateProduct}>
+      {/*  <form action={"http://localhost:3000"} className={css.formCreateProduct}>  */}
+      {/*  <input
         type="file"
-        accept="image/*"
         required
-        filename={image}
         onChange={(e) => {
-          setImage(e.target.files[0]);
+          setImg(e.target.files);
         }}
       /> */}
       <input
@@ -90,7 +106,7 @@ const FormCreateProduct = () => {
       <button type="submit" onClick={handleSubmit}>
         Разместить
       </button>
-    </form>
+    </div>
   );
 };
 

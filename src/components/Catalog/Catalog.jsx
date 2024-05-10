@@ -35,6 +35,7 @@ const Catalog = ({ selectedCategory = 0, setSelectedCategory }) => {
           <CatalogItem
             key={cartProduct.id}
             id={cartProduct.id}
+            urlImg={cartProduct.url}
             title={cartProduct.title}
             price={cartProduct.price}
           />

@@ -22,18 +22,16 @@ const ProductItem = ({
       <div className={css.productItem__description}>
         <h2>{title}</h2>
         <p>
-          <b>Описание: </b>
-          {description}
+          <b>Описание:</b>&nbsp;{description}
         </p>
         <h3>
-          <b>Цена:</b> {price}
+          <b>Цена:</b>&nbsp;{price}
         </h3>
         <p>
-          <b>Телефон:</b>
-          {phone}
+          <b>Телефон:</b>&nbsp;{phone}
         </p>
         <p>
-          <b>ФИО:</b> {userName}
+          <b>ФИО:</b>&nbsp;{userName}
         </p>
       </div>
     </div>
