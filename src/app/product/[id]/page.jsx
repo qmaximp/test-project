@@ -26,7 +26,7 @@ const page = () => {
           <ProductItem
             key={product.id}
             id={product.id}
-            imageProduct={product.imageProduct}
+            urlImg={product.url}
             title={product.title}
             description={product.description}
             price={product.price}

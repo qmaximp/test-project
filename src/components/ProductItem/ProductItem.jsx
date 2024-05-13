@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const ProductItem = ({
   id,
-  imageProduct,
+  urlImg,
   title,
   description,
   price,
@@ -14,10 +14,7 @@ const ProductItem = ({
   return (
     <div className={css.productItem} id={id}>
       <div className={css.productItem__img}>
-        {/*  <Image
-          alt=""
-          src="../../../public/imageProduct/"
-          {...imageProduct}></Image> */}
+        <img alt="" src={urlImg}></img>
       </div>
       <div className={css.productItem__description}>
         <h2>{title}</h2>

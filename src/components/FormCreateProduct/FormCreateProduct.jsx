@@ -1,29 +1,11 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import css from "./FormCreateProduct.module.scss";
 import axios from "axios";
 import FilterCategoryCreate from "../FilterCategory/FilterCategoryCreate";
 
 const FormCreateProduct = () => {
-  const [data, setData] = useState({
-    selectedFile: "",
-    responseArray: "",
-    loading: false,
-  });
-  const [img, setImg] = useState("");
-  /* const handleInputChange = (event) => {
-    console.log("event", event.target.files);
-    setData({ ...data, loading: true });
-    img = event.target.files[0];
-    const info = new FormData();
-    info.append("file", img);
-    axios.post("http://localhost:3001/uploadImage/", info, {
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-    });
-  }; */
-
+  const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -33,6 +15,7 @@ const FormCreateProduct = () => {
 
   const handleSubmit = () => {
     let data = {
+      url,
       title,
       description,
       price,
@@ -49,13 +32,14 @@ const FormCreateProduct = () => {
   return (
     <div className={css.formCreateProduct}>
       {/*  <form action={"http://localhost:3000"} className={css.formCreateProduct}>  */}
-      {/*  <input
+      <input
         type="file"
         required
+        filename={url}
         onChange={(e) => {
-          setImg(e.target.files);
+          setUrl(e.target.files);
         }}
-      /> */}
+      />
       <input
         type="text"
         placeholder="заголовок"
