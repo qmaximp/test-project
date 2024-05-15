@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import css from "./ProductItem.module.scss";
-import Image from "next/image";
 
 const ProductItem = ({
   id,

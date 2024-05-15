@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import css from "./FormCreateProduct.module.scss";
 import axios from "axios";
 import FilterCategoryCreate from "../FilterCategory/FilterCategoryCreate";
+import UploadImageComponent from "../UploadImageComponent/UploadImageComponent";
 
 const FormCreateProduct = () => {
   const [url, setUrl] = useState("");
@@ -30,16 +31,8 @@ const FormCreateProduct = () => {
   };
 
   return (
-    <div className={css.formCreateProduct}>
-      {/*  <form action={"http://localhost:3000"} className={css.formCreateProduct}>  */}
-      <input
-        type="file"
-        required
-        filename={url}
-        onChange={(e) => {
-          setUrl(e.target.files);
-        }}
-      />
+    <form action={"http://localhost:3000"} className={css.formCreateProduct}>
+      <UploadImageComponent setter={setUrl} />
       <input
         type="text"
         placeholder="заголовок"
@@ -90,7 +83,7 @@ const FormCreateProduct = () => {
       <button type="submit" onClick={handleSubmit}>
         Разместить
       </button>
-    </div>
+    </form>
   );
 };
 

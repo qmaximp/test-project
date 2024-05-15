@@ -2,7 +2,7 @@
 import Axios from "axios";
 import React, { useState } from "react";
 
-const UploadImageComponent = () => {
+const UploadImageComponent = ({ setter }) => {
   const [data, setData] = useState({
     selectedFile: "",
     responseArray: "",
@@ -24,19 +24,28 @@ const UploadImageComponent = () => {
       setData({ ...data, responseArray: data, loading: false });
       setImgUrl(data[0].url);
       resetFile();
+      setter(data[0].url);
     });
   };
   function resetFile() {
-    // Reset file input control
     document.getElementsByName("file").value = null;
   }
+
   return (
-    <div style={{ textAlign: "center" }}>
-      <div style={{ marginTop: "25px" }}>
-        <input type="file" onChange={handleInputChange} />
-        {imgUrl && <img decoding="async" src={imgUrl} />}
-      </div>
-    </div>
+    <>
+      <input type="file" required onChange={handleInputChange} />
+      {imgUrl && (
+        <img
+          style={{
+            width: "250px",
+            height: "175px",
+            borderRadius: "10px",
+          }}
+          decoding="async"
+          src={imgUrl}
+        />
+      )}
+    </>
   );
 };
 

@@ -9,6 +9,7 @@ const CatalogItem = ({ id, urlImg, title, price }) => {
     <Link href={`/product/${id}/`} className={css.link__CatalogItem}>
       <div className={css.CatalogItem}>
         <div>
+          {/* <Image alt="" fill src={"urlImg"}></Image> */}
           <img alt="" src={urlImg}></img>
           <h3>{title}</h3>
           <p>
