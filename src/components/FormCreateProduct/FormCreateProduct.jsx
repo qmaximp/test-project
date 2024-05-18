@@ -31,7 +31,7 @@ const FormCreateProduct = () => {
   };
 
   return (
-    <div action={"http://localhost:3000"} className={css.formCreateProduct}>
+    <form action={"http://localhost:3000"} className={css.formCreateProduct}>
       <UploadImageComponent setter={setUrl} />
       <input
         type="text"
@@ -83,7 +83,7 @@ const FormCreateProduct = () => {
       <button type="submit" onClick={handleSubmit}>
         Разместить
       </button>
-    </div>
+    </form>
   );
 };
 
