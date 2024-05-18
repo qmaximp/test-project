@@ -33,7 +33,12 @@ const UploadImageComponent = ({ setter }) => {
 
   return (
     <>
-      <input type="file" required onChange={handleInputChange} />
+      <input
+        type="file"
+        required
+        accept=".jpg, .jpeg, .png"
+        onChange={handleInputChange}
+      />
       {imgUrl && (
         <img
           style={{

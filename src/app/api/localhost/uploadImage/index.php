@@ -1,7 +1,9 @@
 <?php
 include('../connect.php');
 $response = array();
-$upload_dir = 'E:/ospanel/domains/localhost/img/'; 
+/* $upload_dir = 'C:/ospanel/domains/localhost/img/';  */
+$upload_dir = 'C:/ospanel/domains/localhost/img/'; 
+
 $server_url = 'http://localhost:3001/img'; 
 
 if($_FILES['file']) {

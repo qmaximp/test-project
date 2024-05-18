@@ -20,7 +20,11 @@
 
 		&>img {
 			border-radius: 10px;
-			margin-bottom: 15px;
+			max-height: 200px;
+			width: auto;
+			display: flex;
+			align-items: center;
+			margin: 0px auto 15px auto;
 		}
 
 		&>h3 {
